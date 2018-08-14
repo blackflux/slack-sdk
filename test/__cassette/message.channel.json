@@ -1,0 +1,28 @@
+[
+    {
+        "scope": "https://workspace.slack.com:443",
+        "method": "POST",
+        "path": "/api/rtm.start",
+        "body": "*",
+        "status": 200,
+        "response": {
+            "ok": true,
+            "channels": [
+                {
+                    "id": "C3Y9NQTQG",
+                    "name": "channel"
+                }
+            ]
+        }
+    },
+    {
+        "scope": "https://workspace.slack.com:443",
+        "method": "POST",
+        "path": "/api/chat.postMessage",
+        "body": "*",
+        "status": 200,
+        "response": {
+            "ok": true
+        }
+    }
+]
