@@ -80,16 +80,16 @@
       "url": "https://github.com/simlu/slack-sdk/blob/master/LICENSE"
     }
   ],
-  "homepage": "#readme",
+  "homepage": "https://github.com/simlu/slack-sdk#readme",
   "engines": {
     "node": ">= 8.10"
   },
   "repository": {
     "type": "git",
-    "url": ".git"
+    "url": "https://github.com/simlu/slack-sdk.git"
   },
   "bugs": {
-    "url": "/issues"
+    "url": "https://github.com/simlu/slack-sdk/issues"
   },
   "files": [
     "lib"
