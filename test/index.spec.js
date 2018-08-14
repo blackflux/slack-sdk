@@ -8,7 +8,9 @@ nockBack.fixtures = path.join(__dirname, "__cassette");
 
 describe("Testing Slack SDK", () => {
   let slack;
-  beforeEach(() => slack = Slack("workspace", "SLACK-SESSION-TOKEN"));
+  beforeEach(() => {
+    slack = Slack("workspace", "SLACK-SESSION-TOKEN");
+  });
 
   it("Testing message.channel", (done) => {
     nockBack(`message.channel.json`, {}, (nockDone) => {
