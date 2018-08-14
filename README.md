@@ -9,7 +9,7 @@
 
 # Slack SDK
 
-Basic Slack Api SDK
+Basic Slack Api SDK using User Session Token
 
 ## Install
 
@@ -28,7 +28,14 @@ slack.message.channel("channel-name", "message");
 
 ## Obtaining User Session Token
 
-...
+1) Go to https://YOURWORKSPACE.slack.com/home in Chrome
+2) Right click → Inspect
+3) Select the network tab
+4) Reload the page
+5) Type in api in the search
+6) Click rtm.start and then headers
+7) Scroll down until you find the `token`. It starts with `xoxs-`
+8) Copy it!
 
 ## Functions
 
