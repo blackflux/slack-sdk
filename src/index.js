@@ -27,6 +27,9 @@ module.exports = (workspaceUrl, token) => {
 
   return {
     call,
+    workspace: {
+      details: () => call("rtm.start", {}, true)
+    },
     message: {
       self: async (msg) => {
         const rtmStart = await call("rtm.start", {}, true);

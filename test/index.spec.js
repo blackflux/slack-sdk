@@ -12,6 +12,16 @@ describe("Testing Slack SDK", () => {
     slack = Slack("workspace", "SLACK-SESSION-TOKEN");
   });
 
+  it("Testing workspace.details", (done) => {
+    nockBack(`workspace.details.json`, {}, (nockDone) => {
+      slack.workspace.details().then((r) => {
+        expect(r).to.deep.contain({ ok: true });
+        nockDone();
+        done();
+      }).catch(done.fail);
+    });
+  });
+
   it("Testing message.channel", (done) => {
     nockBack(`message.channel.json`, {}, (nockDone) => {
       slack.message.channel("channel", "message").then((r) => {

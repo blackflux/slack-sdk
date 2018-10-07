@@ -1,0 +1,12 @@
+[
+    {
+        "scope": "https://workspace.slack.com:443",
+        "method": "POST",
+        "path": "/api/rtm.start",
+        "body": "*",
+        "status": 200,
+        "response": {
+            "ok": true
+        }
+    }
+]
