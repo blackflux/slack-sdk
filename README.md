@@ -4,8 +4,8 @@
 [![Dependencies](https://david-dm.org/simlu/slack-sdk/status.svg)](https://david-dm.org/simlu/slack-sdk)
 [![NPM](https://img.shields.io/npm/v/slack-sdk.svg)](https://www.npmjs.com/package/slack-sdk)
 [![Downloads](https://img.shields.io/npm/dt/slack-sdk.svg)](https://www.npmjs.com/package/slack-sdk)
-[![Semantic-Release](https://github.com/simlu/js-gardener/blob/master/assets/icons/semver.svg)](https://github.com/semantic-release/semantic-release)
-[![Gardener](https://github.com/simlu/js-gardener/blob/master/assets/badge.svg)](https://github.com/simlu/js-gardener)
+[![Semantic-Release](https://github.com/blackflux/js-gardener/blob/master/assets/icons/semver.svg)](https://github.com/semantic-release/semantic-release)
+[![Gardener](https://github.com/blackflux/js-gardener/blob/master/assets/badge.svg)](https://github.com/blackflux/js-gardener)
 
 # Slack SDK
 
