@@ -21,10 +21,20 @@ npm i --save slack-sdk
 
 <!-- eslint-disable import/no-extraneous-dependencies, import/no-unresolved -->
 ```javascript
-const slack = require("slack-sdk")("workspace-name", "user-session-token");
+const slack = require("slack-sdk")("workspace-name", "user-session-token", {/* options */});
 
 slack.message.channel("channel-name", "message");
 ```
+
+## Options
+
+### cacheTtl
+
+Cache duration in seconds. Optional, defaults to `60`.
+
+### cacheMaxEntries
+
+Maximum number of entries in cache at any given time. Optional, defaults to `100`.
 
 ## Obtaining User Session Token
 
@@ -47,6 +57,9 @@ Send `message` to self.
 
 Send `message` to channel `channel`.
 
+### workspace.details(cache: boolean = true)
+
+Obtain details for workspace. Should usually be cached as it is easy to run into rate limits.
 
 ## Internal functions
 
@@ -55,3 +68,9 @@ Send `message` to channel `channel`.
 Send request to slack endpoint `endpoint` with parameters `params`. 
 
 E.g. `call("rtm.start", {}, true)` to obtain information about current user. Use cache if information was already obtained before.
+
+## Cache
+
+Cache operates by matching the exact outgoing request signature.
+
+Cached and non-cached requests operate separately. So making a non cached request does never alter the cache.
