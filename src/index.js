@@ -1,7 +1,7 @@
 const crypto = require('crypto');
-const request = require("request-promise-native");
-const LRU = require("lru-cache");
-const stringify = require("json-stable-stringify");
+const request = require('request-promise-native');
+const LRU = require('lru-cache');
+const stringify = require('json-stable-stringify');
 
 
 module.exports = (workspaceUrl, token, { cacheTtl = 60, cacheMaxEntries = 100 } = {}) => {
@@ -16,7 +16,7 @@ module.exports = (workspaceUrl, token, { cacheTtl = 60, cacheMaxEntries = 100 } 
         .reduce((p, [k, v]) => Object.assign(p, { [k]: v }), {}),
       json: true
     };
-    const signature = crypto.createHash('md5').update(stringify(requestParams)).digest("hex");
+    const signature = crypto.createHash('md5').update(stringify(requestParams)).digest('hex');
     if (cache !== true) {
       return request(requestParams);
     }
@@ -29,26 +29,26 @@ module.exports = (workspaceUrl, token, { cacheTtl = 60, cacheMaxEntries = 100 } 
   return {
     call,
     workspace: {
-      details: (cache = true) => call("rtm.start", {}, cache)
+      details: (cache = true) => call('rtm.start', {}, cache)
     },
     message: {
       self: async (msg) => {
-        const rtmStart = await call("rtm.start", {}, true);
+        const rtmStart = await call('rtm.start', {}, true);
         const user = rtmStart.self;
-        return call("chat.command", {
-          disp: "/me",
-          command: "/msg",
+        return call('chat.command', {
+          disp: '/me',
+          command: '/msg',
           text: `${user.name} ${msg}`,
           channel: rtmStart.ims.find(im => im.user === user.id).id
         });
       },
       channel: async (name, msg) => {
-        const rtmStart = await call("rtm.start", {}, true);
+        const rtmStart = await call('rtm.start', {}, true);
         const channel = rtmStart.channels.find(chan => chan.name === name);
         if (!channel) {
           throw new Error(`Channel "${name}" not found.`);
         }
-        return call("chat.postMessage", {
+        return call('chat.postMessage', {
           text: msg,
           channel: channel.id
         });
