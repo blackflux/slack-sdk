@@ -1,0 +1,15 @@
+{
+  "@blackflux/robo-config-plugin": {
+    "tasks": [
+      "assorted/@npm-opensource"
+    ],
+    "variables": {
+      "repoKey": "blackflux/slack-sdk",
+      "packageName": "slack-sdk",
+      "projectName": "slack-sdk",
+      "owner": "simlu",
+      "ownerName": "Lukas Siemon",
+      "mergeBot": "MrsFlux"
+    }
+  }
+}
