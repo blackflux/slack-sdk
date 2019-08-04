@@ -3,7 +3,10 @@
   "version": "0.0.0-development",
   "description": "Basic Slack Api SDK",
   "main": "lib/index.js",
-  "dependencies": {"json-stable-stringify": "1.0.1", "lru-cache": "5.1.1"},
+  "dependencies": {
+    "json-stable-stringify": "1.0.1",
+    "lru-cache": "5.1.1"
+  },
   "peerDependencies": {
     "request": "^2.88.0",
     "request-promise-native": "^1.0.5"
@@ -14,7 +17,7 @@
     "@babel/plugin-proposal-object-rest-spread": "7.5.5",
     "@babel/register": "7.5.5",
     "@blackflux/eslint-plugin-rules": "1.1.0",
-    "@blackflux/robo-config-plugin": "2.2.3",
+    "@blackflux/robo-config-plugin": "2.3.0",
     "babel-eslint": "10.0.2",
     "chai": "4.2.0",
     "coveralls": "3.0.5",
@@ -42,7 +45,13 @@
     "ts": "yarn run test-simple",
     "tsv": "yarn run test-simple --verbose"
   },
-  "keywords": ["slack", "api", "sdk", "cmd", "cli"],
+  "keywords": [
+    "slack",
+    "api",
+    "sdk",
+    "cmd",
+    "cli"
+  ],
   "author": "Lukas Siemon",
   "license": "MIT",
   "nyc": {
@@ -54,14 +63,26 @@
     "statements": 100,
     "functions": 100,
     "branches": 100,
-    "include": ["**/*.js"],
-    "reporter": ["lcov", "text-summary"],
-    "require": ["@babel/register"],
+    "include": [
+      "**/*.js"
+    ],
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ],
+    "require": [
+      "@babel/register"
+    ],
     "extension": [],
     "cache": true,
     "all": true,
     "babel": true,
-    "exclude": ["gardener.js", "node_modules/*", "coverage/*", "lib/*"]
+    "exclude": [
+      "gardener.js",
+      "node_modules/*",
+      "coverage/*",
+      "lib/*"
+    ]
   },
   "licenses": [
     {
@@ -70,11 +91,17 @@
     }
   ],
   "homepage": "https://github.com/blackflux/slack-sdk#readme",
-  "engines": {"node": ">= 8.10"},
+  "engines": {
+    "node": ">= 8.10"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/blackflux/slack-sdk.git"
   },
-  "bugs": {"url": "https://github.com/blackflux/slack-sdk/issues"},
-  "files": ["lib"]
+  "bugs": {
+    "url": "https://github.com/blackflux/slack-sdk/issues"
+  },
+  "files": [
+    "lib"
+  ]
 }
