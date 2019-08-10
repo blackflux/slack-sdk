@@ -12,7 +12,7 @@ module.exports = (workspaceUrl, token, { cacheTtl = 60, cacheMaxEntries = 100 } 
       method: 'POST',
       uri: `https://${workspaceUrl}.slack.com/api/${endpoint}`,
       formData: Object
-        .entries(Object.assign({ token }, params))
+        .entries({ token, ...params })
         .reduce((p, [k, v]) => Object.assign(p, { [k]: v }), {}),
       json: true
     };
@@ -39,12 +39,12 @@ module.exports = (workspaceUrl, token, { cacheTtl = 60, cacheMaxEntries = 100 } 
           disp: '/me',
           command: '/msg',
           text: `${user.name} ${msg}`,
-          channel: rtmStart.ims.find(im => im.user === user.id).id
+          channel: rtmStart.ims.find((im) => im.user === user.id).id
         });
       },
       channel: async (name, msg) => {
         const rtmStart = await call('rtm.start', {}, true);
-        const channel = rtmStart.channels.find(chan => chan.name === name);
+        const channel = rtmStart.channels.find((chan) => chan.name === name);
         if (!channel) {
           throw new Error(`Channel "${name}" not found.`);
         }
