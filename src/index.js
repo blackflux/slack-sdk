@@ -3,7 +3,6 @@ const request = require('request-promise-native');
 const LRU = require('lru-cache');
 const stringify = require('json-stable-stringify');
 
-
 module.exports = (workspaceUrl, token, { cacheTtl = 60, cacheMaxEntries = 100 } = {}) => {
   const callCache = new LRU({ maxAge: cacheTtl * 1000, max: cacheMaxEntries });
 
