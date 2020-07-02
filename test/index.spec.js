@@ -1,4 +1,3 @@
-const path = require('path');
 const expect = require('chai').expect;
 const { describe } = require('node-tdd');
 const Slack = require('../src/index');
