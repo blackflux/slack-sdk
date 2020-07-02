@@ -1,67 +1,38 @@
 const path = require('path');
 const expect = require('chai').expect;
-const nockBack = require('nock').back;
+const { describe } = require('node-tdd');
 const Slack = require('../src/index');
 
-nockBack.setMode('record');
-nockBack.fixtures = path.join(__dirname, '__cassette');
-
-describe('Testing Slack SDK', () => {
+describe('Testing Slack SDK', { useNock: true }, () => {
   let slack;
   beforeEach(() => {
     slack = Slack('workspace', 'SLACK-SESSION-TOKEN');
   });
 
-  it('Testing workspace.details', (done) => {
-    nockBack('workspace.details.json', {}, (nockDone) => {
-      slack.workspace.details().then((r) => {
-        expect(r).to.deep.contain({ ok: true });
-        nockDone();
-        done();
-      }).catch(done.fail);
-    });
+  it('Testing workspace.details', async () => {
+    const r = await slack.workspace.details();
+    expect(r).to.deep.contain({ ok: true });
   });
 
-  it('Testing message.channel', (done) => {
-    nockBack('message.channel.json', {}, (nockDone) => {
-      slack.message.channel('channel', 'message').then((r) => {
-        expect(r).to.deep.contain({ ok: true });
-        nockDone();
-        done();
-      }).catch(done.fail);
-    });
+  it('Testing message.channel', async () => {
+    const r = await slack.message.channel('channel', 'message');
+    expect(r).to.deep.contain({ ok: true });
   });
 
-  it('Testing message.channel-unknown', (done) => {
-    nockBack('message.channel-unknown.json', {}, (nockDone) => {
-      slack.message.channel('unknown', 'message').catch((e) => {
-        expect(e.message).to.equal('Channel "unknown" not found.');
-        nockDone();
-        done();
-      }).then(done.fail);
-    });
+  it('Testing message.channel-unknown', async ({ capture }) => {
+    const e = await capture(() => slack.message.channel('unknown', 'message'));
+    expect(e.message).to.equal('Channel "unknown" not found.');
   });
 
-  it('Testing message.self', (done) => {
-    nockBack('message.self.json', {}, (nockDone) => {
-      slack.message.self('message').then((r) => {
-        expect(r).to.deep.contain({ ok: true });
-        nockDone();
-        done();
-      }).catch(done.fail);
-    });
+  it('Testing message.self', async () => {
+    const r = await slack.message.self('message');
+    expect(r).to.deep.contain({ ok: true });
   });
 
-  it('Testing call-cached', (done) => {
-    nockBack('call-cached.json', {}, (nockDone) => {
-      slack.call('rtm.start', {}, true).then((r1) => {
-        expect(r1).to.deep.contain({ ok: true });
-        slack.call('rtm.start', {}, true).then((r2) => {
-          expect(r2).to.deep.contain({ ok: true });
-          nockDone();
-          done();
-        }).catch(done.fail);
-      }).catch(done.fail);
-    });
+  it('Testing call-cached', async () => {
+    const r1 = await slack.call('rtm.start', {}, true);
+    expect(r1).to.deep.contain({ ok: true });
+    const r2 = await slack.call('rtm.start', {}, true);
+    expect(r2).to.deep.contain({ ok: true });
   });
 });
