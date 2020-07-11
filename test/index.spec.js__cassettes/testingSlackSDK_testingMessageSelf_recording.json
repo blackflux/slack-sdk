@@ -1,0 +1,32 @@
+[
+  {
+    "scope": "https://workspace.slack.com:443",
+    "method": "POST",
+    "path": "/api/rtm.start",
+    "body": "*",
+    "status": 200,
+    "response": {
+      "ok": true,
+      "self": {
+        "id": "U0G9QF9C6",
+        "name": "user.name"
+      },
+      "ims": [
+        {
+          "id": "D19NX2Y3Z",
+          "user": "U0G9QF9C6"
+        }
+      ]
+    }
+  },
+  {
+    "scope": "https://workspace.slack.com:443",
+    "method": "POST",
+    "path": "/api/chat.command",
+    "body": "*",
+    "status": 200,
+    "response": {
+      "ok": true
+    }
+  }
+]
