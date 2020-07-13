@@ -3,7 +3,7 @@
     "scope": "https://workspace.slack.com:443",
     "method": "POST",
     "path": "/api/rtm.start",
-    "body": "*",
+    "body": "----------------------------521620130688182955621808\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\nSLACK-SESSION-TOKEN\r\n----------------------------521620130688182955621808--\r\n",
     "status": 200,
     "response": {
       "ok": true,
@@ -19,7 +19,7 @@
     "scope": "https://workspace.slack.com:443",
     "method": "POST",
     "path": "/api/chat.postMessage",
-    "body": "*",
+    "body": "----------------------------560711720135167258227297\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\nSLACK-SESSION-TOKEN\r\n----------------------------560711720135167258227297\r\nContent-Disposition: form-data; name=\"text\"\r\n\r\nmessage\r\n----------------------------560711720135167258227297\r\nContent-Disposition: form-data; name=\"channel\"\r\n\r\nC3Y9NQTQG\r\n----------------------------560711720135167258227297--\r\n",
     "status": 200,
     "response": {
       "ok": true
