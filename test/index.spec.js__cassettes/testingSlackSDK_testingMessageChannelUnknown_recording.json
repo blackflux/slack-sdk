@@ -3,7 +3,7 @@
     "scope": "https://workspace.slack.com:443",
     "method": "POST",
     "path": "/api/rtm.start",
-    "body": "----------------------------037036569792070672385890\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\nSLACK-SESSION-TOKEN\r\n----------------------------037036569792070672385890--\r\n",
+    "body": "----------------------------144043082968466520244751\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\nSLACK-SESSION-TOKEN\r\n----------------------------144043082968466520244751--\r\n",
     "status": 200,
     "response": {
       "ok": true,
