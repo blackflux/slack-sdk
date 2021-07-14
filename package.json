@@ -29,7 +29,7 @@
     "js-gardener": "3.0.3",
     "node-tdd": "3.0.4",
     "nyc": "15.1.0",
-    "semantic-release": "17.4.3"
+    "semantic-release": "17.4.4"
   },
   "scripts": {
     "clean": "rm -rf lib",
