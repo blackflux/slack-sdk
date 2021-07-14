@@ -4,13 +4,12 @@
   "description": "Basic Slack Api SDK",
   "main": "lib/index.js",
   "dependencies": {
-    "json-stable-stringify": "1.0.1",
-    "lru-cache": "6.0.0"
+    "axios": "0.21.1",
+    "form-data": "4.0.0",
+    "lru-cache-ext": "2.0.0",
+    "object-hash-strict": "3.0.0"
   },
-  "peerDependencies": {
-    "request": "^2.88.0",
-    "request-promise-native": "^1.0.5"
-  },
+  "peerDependencies": {},
   "devDependencies": {
     "@babel/cli": "7.14.5",
     "@babel/core": "7.14.3",
@@ -30,8 +29,6 @@
     "js-gardener": "3.0.3",
     "node-tdd": "3.0.4",
     "nyc": "15.1.0",
-    "request": "2.88.2",
-    "request-promise-native": "1.0.9",
     "semantic-release": "17.4.3"
   },
   "scripts": {

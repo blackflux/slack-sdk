@@ -3,7 +3,7 @@
     "scope": "https://workspace.slack.com:443",
     "method": "POST",
     "path": "/api/rtm.start",
-    "body": "----------------------------417292984229060028182660\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\nSLACK-SESSION-TOKEN\r\n----------------------------417292984229060028182660--\r\n",
+    "body": "----------------------------731318046911294858708682\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\nSLACK-SESSION-TOKEN\r\n----------------------------731318046911294858708682--\r\n",
     "status": 200,
     "response": {
       "ok": true,
@@ -23,7 +23,7 @@
     "scope": "https://workspace.slack.com:443",
     "method": "POST",
     "path": "/api/chat.command",
-    "body": "----------------------------709669284740432784988960\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\nSLACK-SESSION-TOKEN\r\n----------------------------709669284740432784988960\r\nContent-Disposition: form-data; name=\"disp\"\r\n\r\n/me\r\n----------------------------709669284740432784988960\r\nContent-Disposition: form-data; name=\"command\"\r\n\r\n/msg\r\n----------------------------709669284740432784988960\r\nContent-Disposition: form-data; name=\"text\"\r\n\r\nuser.name message\r\n----------------------------709669284740432784988960\r\nContent-Disposition: form-data; name=\"channel\"\r\n\r\nD19NX2Y3Z\r\n----------------------------709669284740432784988960--\r\n",
+    "body": "----------------------------025274732886786331221225\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\nSLACK-SESSION-TOKEN\r\n----------------------------025274732886786331221225\r\nContent-Disposition: form-data; name=\"disp\"\r\n\r\n/me\r\n----------------------------025274732886786331221225\r\nContent-Disposition: form-data; name=\"command\"\r\n\r\n/msg\r\n----------------------------025274732886786331221225\r\nContent-Disposition: form-data; name=\"text\"\r\n\r\nuser.name message\r\n----------------------------025274732886786331221225\r\nContent-Disposition: form-data; name=\"channel\"\r\n\r\nD19NX2Y3Z\r\n----------------------------025274732886786331221225--\r\n",
     "status": 200,
     "response": {
       "ok": true
