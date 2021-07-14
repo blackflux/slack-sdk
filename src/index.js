@@ -1,28 +1,37 @@
-const crypto = require('crypto');
-const request = require('request-promise-native');
-const LRU = require('lru-cache');
-const stringify = require('json-stable-stringify');
+const axios = require('axios');
+const FormData = require('form-data');
+const LRU = require('lru-cache-ext');
+const objectHash = require('object-hash-strict');
 
 module.exports = (workspaceUrl, token, { cacheTtl = 60, cacheMaxEntries = 100 } = {}) => {
-  const callCache = new LRU({ maxAge: cacheTtl * 1000, max: cacheMaxEntries });
+  const lru = new LRU({ maxAge: cacheTtl * 1000, max: cacheMaxEntries });
 
   const call = (endpoint, params, cache = false) => {
+    const formDataRaw = { token, ...params };
+    const formData = Object.entries(formDataRaw).reduce((p, [k, v]) => {
+      p.append(k, v);
+      return p;
+    }, new FormData());
     const requestParams = {
-      method: 'POST',
-      uri: `https://${workspaceUrl}.slack.com/api/${endpoint}`,
-      formData: Object
-        .entries({ token, ...params })
-        .reduce((p, [k, v]) => Object.assign(p, { [k]: v }), {}),
-      json: true
+      method: 'post',
+      url: `https://${workspaceUrl}.slack.com/api/${endpoint}`,
+      data: formData,
+      headers: {
+        // eslint-disable-next-line no-underscore-dangle
+        'Content-Type': `multipart/form-data; boundary=${formData._boundary}`
+      }
     };
-    const signature = crypto.createHash('md5').update(stringify(requestParams)).digest('hex');
+    const req = async () => {
+      const { data } = await axios(requestParams);
+      return data;
+    };
     if (cache !== true) {
-      return request(requestParams);
+      return req();
     }
-    if (!callCache.has(signature)) {
-      callCache.set(signature, request(requestParams));
-    }
-    return callCache.peek(signature); // use peek instead of get to prevent timing problem
+    const signature = objectHash({
+      workspaceUrl, endpoint, token, params
+    });
+    return lru.memoize(signature, () => req());
   };
 
   return {
