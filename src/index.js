@@ -33,14 +33,22 @@ module.exports = (workspaceUrl, token, { cacheTtl = 60, cacheMaxEntries = 100 } 
     });
     return lru.memoize(signature, () => req());
   };
+  const channelFind = async (name) => {
+    const rtmStart = await call('rtm.start', {}, true);
+    const channel = rtmStart.channels.find((chan) => chan.name === name);
+    if (!channel) {
+      throw new Error(`Channel "${name}" not found.`);
+    }
+    return channel;
+  };
 
   return {
     call,
     workspace: {
       details: (cache = true) => call('rtm.start', {}, cache)
     },
-    message: {
-      self: async (msg) => {
+    self: {
+      message: async (msg) => {
         const rtmStart = await call('rtm.start', {}, true);
         const user = rtmStart.self;
         return call('chat.command', {
@@ -49,15 +57,28 @@ module.exports = (workspaceUrl, token, { cacheTtl = 60, cacheMaxEntries = 100 } 
           text: `${user.name} ${msg}`,
           channel: rtmStart.ims.find((im) => im.user === user.id).id
         });
-      },
-      channel: async (name, msg) => {
-        const rtmStart = await call('rtm.start', {}, true);
-        const channel = rtmStart.channels.find((chan) => chan.name === name);
-        if (!channel) {
-          throw new Error(`Channel "${name}" not found.`);
-        }
+      }
+    },
+    channel: {
+      find: channelFind,
+      message: async (name, msg) => {
+        const channel = await channelFind(name);
         return call('chat.postMessage', {
           text: msg,
+          channel: channel.id
+        });
+      },
+      setTopic: async (name, topic) => {
+        const channel = await channelFind(name);
+        return call('conversations.setTopic', {
+          topic,
+          channel: channel.id
+        });
+      },
+      setPurpose: async (name, purpose) => {
+        const channel = await channelFind(name);
+        return call('conversations.setPurpose', {
+          purpose,
           channel: channel.id
         });
       }

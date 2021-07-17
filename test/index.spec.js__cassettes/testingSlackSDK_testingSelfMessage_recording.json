@@ -1,0 +1,32 @@
+[
+  {
+    "scope": "https://workspace.slack.com:443",
+    "method": "POST",
+    "path": "/api/rtm.start",
+    "body": "----------------------------240931670220439824763760\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\nSLACK-SESSION-TOKEN\r\n----------------------------240931670220439824763760--\r\n",
+    "status": 200,
+    "response": {
+      "ok": true,
+      "self": {
+        "id": "U0G9QF9C6",
+        "name": "user.name"
+      },
+      "ims": [
+        {
+          "id": "D19NX2Y3Z",
+          "user": "U0G9QF9C6"
+        }
+      ]
+    }
+  },
+  {
+    "scope": "https://workspace.slack.com:443",
+    "method": "POST",
+    "path": "/api/chat.command",
+    "body": "----------------------------898525272439246643720391\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\nSLACK-SESSION-TOKEN\r\n----------------------------898525272439246643720391\r\nContent-Disposition: form-data; name=\"disp\"\r\n\r\n/me\r\n----------------------------898525272439246643720391\r\nContent-Disposition: form-data; name=\"command\"\r\n\r\n/msg\r\n----------------------------898525272439246643720391\r\nContent-Disposition: form-data; name=\"text\"\r\n\r\nuser.name message\r\n----------------------------898525272439246643720391\r\nContent-Disposition: form-data; name=\"channel\"\r\n\r\nD19NX2Y3Z\r\n----------------------------898525272439246643720391--\r\n",
+    "status": 200,
+    "response": {
+      "ok": true
+    }
+  }
+]
