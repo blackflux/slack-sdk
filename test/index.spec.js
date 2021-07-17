@@ -17,18 +17,28 @@ describe('Testing Slack SDK', {
     expect(r).to.deep.contain({ ok: true });
   });
 
-  it('Testing message.channel', async () => {
-    const r = await slack.message.channel('channel', 'message');
+  it('Testing channel.message', async () => {
+    const r = await slack.channel.message('channel', 'message');
     expect(r).to.deep.contain({ ok: true });
   });
 
-  it('Testing message.channel-unknown', async ({ capture }) => {
-    const e = await capture(() => slack.message.channel('unknown', 'message'));
+  it('Testing channel.message-unknown', async ({ capture }) => {
+    const e = await capture(() => slack.channel.message('unknown', 'message'));
     expect(e.message).to.equal('Channel "unknown" not found.');
   });
 
-  it('Testing message.self', async () => {
-    const r = await slack.message.self('message');
+  it('Testing channel.setTopic', async () => {
+    const r = await slack.channel.setTopic('channel', 'topic');
+    expect(r).to.deep.contain({ ok: true });
+  });
+
+  it('Testing channel.setPurpose', async () => {
+    const r = await slack.channel.setPurpose('channel', 'purpose');
+    expect(r).to.deep.contain({ ok: true });
+  });
+
+  it('Testing self.message', async () => {
+    const r = await slack.self.message('message');
     expect(r).to.deep.contain({ ok: true });
   });
 
