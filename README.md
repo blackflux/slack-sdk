@@ -23,7 +23,7 @@ npm i --save slack-sdk
 ```javascript
 const slack = require('slack-sdk')('workspace-name', 'user-session-token', {/* options */});
 
-slack.message.channel('channel-name', 'message');
+slack.channel.message('channel-name', 'message');
 ```
 
 ## Options
@@ -49,13 +49,25 @@ Maximum number of entries in cache at any given time. Optional, defaults to `100
 
 ## Functions
 
-### message.self(message: string)
+### self.message(message: string)
 
 Send `message` to self.
 
-### message.channel(channel: string, message: string)
+### channel.meta(channel: string)
+
+Get meta information about channel `channel`
+
+### channel.message(channel: string, message: string)
 
 Send `message` to channel `channel`.
+
+### channel.setTopic(channel: string, topic: string)
+
+Set `topic` of channel `channel`
+
+### channel.setPurpose(channel: string, purpose: string)
+
+Set `purpose` of channel `channel`
 
 ### workspace.details(cache: boolean = true)
 
@@ -65,7 +77,7 @@ Obtain details for workspace. Should usually be cached as it is easy to run into
 
 ### call(endpoint: string, params: object, cache: boolean = false)
 
-Send request to slack endpoint `endpoint` with parameters `params`. 
+Send request to slack endpoint `endpoint` with parameters `params`.
 
 E.g. `call("rtm.start", {}, true)` to obtain information about current user. Use cache if information was already obtained before.
 
