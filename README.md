@@ -53,9 +53,9 @@ Maximum number of entries in cache at any given time. Optional, defaults to `100
 
 Send `message` to self.
 
-### channel.find(channel: string)
+### channel.meta(channel: string)
 
-Get information about channel `channel`
+Get meta information about channel `channel`
 
 ### channel.message(channel: string, message: string)
 

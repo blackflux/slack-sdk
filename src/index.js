@@ -33,7 +33,7 @@ module.exports = (workspaceUrl, token, { cacheTtl = 60, cacheMaxEntries = 100 } 
     });
     return lru.memoize(signature, () => req());
   };
-  const channelFind = async (name) => {
+  const channelMeta = async (name) => {
     const rtmStart = await call('rtm.start', {}, true);
     const channel = rtmStart.channels.find((chan) => chan.name === name);
     if (!channel) {
@@ -60,23 +60,23 @@ module.exports = (workspaceUrl, token, { cacheTtl = 60, cacheMaxEntries = 100 } 
       }
     },
     channel: {
-      find: channelFind,
+      meta: channelMeta,
       message: async (name, msg) => {
-        const channel = await channelFind(name);
+        const channel = await channelMeta(name);
         return call('chat.postMessage', {
           text: msg,
           channel: channel.id
         });
       },
       setTopic: async (name, topic) => {
-        const channel = await channelFind(name);
+        const channel = await channelMeta(name);
         return call('conversations.setTopic', {
           topic,
           channel: channel.id
         });
       },
       setPurpose: async (name, purpose) => {
-        const channel = await channelFind(name);
+        const channel = await channelMeta(name);
         return call('conversations.setPurpose', {
           purpose,
           channel: channel.id
