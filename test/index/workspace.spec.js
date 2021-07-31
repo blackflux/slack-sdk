@@ -1,6 +1,6 @@
 const expect = require('chai').expect;
 const { describe } = require('node-tdd');
-const Slack = require('../src/index');
+const Slack = require('../../src/index');
 
 describe('Testing Slack SDK', {
   useNock: true,
@@ -12,10 +12,8 @@ describe('Testing Slack SDK', {
     slack = Slack('workspace', 'SLACK-SESSION-TOKEN');
   });
 
-  it('Testing call-cached', async () => {
-    const r1 = await slack.call('rtm.start', {}, true);
-    expect(r1).to.deep.contain({ ok: true });
-    const r2 = await slack.call('rtm.start', {}, true);
-    expect(r2).to.deep.contain({ ok: true });
+  it('Testing workspace.details', async () => {
+    const r = await slack.workspace.details();
+    expect(r).to.deep.contain({ ok: true });
   });
 });

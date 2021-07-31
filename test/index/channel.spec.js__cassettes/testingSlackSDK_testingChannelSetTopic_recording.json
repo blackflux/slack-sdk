@@ -1,0 +1,28 @@
+[
+  {
+    "scope": "https://workspace.slack.com:443",
+    "method": "POST",
+    "path": "/api/rtm.start",
+    "body": "----------------------------253285144519931620775601\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\nSLACK-SESSION-TOKEN\r\n----------------------------253285144519931620775601--\r\n",
+    "status": 200,
+    "response": {
+      "ok": true,
+      "channels": [
+        {
+          "id": "C3Y9NQTQG",
+          "name": "channel"
+        }
+      ]
+    }
+  },
+  {
+    "scope": "https://workspace.slack.com:443",
+    "method": "POST",
+    "path": "/api/conversations.setTopic",
+    "body": "----------------------------731318046911294858708682\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\nSLACK-SESSION-TOKEN\r\n----------------------------731318046911294858708682\r\nContent-Disposition: form-data; name=\"topic\"\r\n\r\ntopic\r\n----------------------------731318046911294858708682\r\nContent-Disposition: form-data; name=\"channel\"\r\n\r\nC3Y9NQTQG\r\n----------------------------731318046911294858708682--\r\n",
+    "status": 200,
+    "response": {
+      "ok": true
+    }
+  }
+]
