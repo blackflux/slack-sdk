@@ -12,6 +12,14 @@ describe('Testing Slack SDK', {
     slack = Slack('workspace', 'SLACK-SESSION-TOKEN');
   });
 
+  it('Testing channel.meta', async () => {
+    const r = await slack.channel.meta('channel');
+    expect(r).to.deep.equal({
+      id: 'C3Y9NQTQG',
+      name: 'channel'
+    });
+  });
+
   it('Testing channel.message', async () => {
     const r = await slack.channel.message('channel', 'message');
     expect(r).to.deep.contain({ ok: true });

@@ -73,6 +73,10 @@ Set `purpose` of channel `channel`
 
 Obtain details for workspace. Should usually be cached as it is easy to run into rate limits.
 
+### files.upload(filepath: string, title: string = null, filename: string = null)
+
+Upload file. Title and filename default to basename of filepath. Returns file id.
+
 ## Internal functions
 
 ### call(endpoint: string, params: object, cache: boolean = false)

@@ -6,6 +6,7 @@ const objectHash = require('object-hash-strict');
 const workspace = require('./index/workspace');
 const self = require('./index/self');
 const channel = require('./index/channel');
+const files = require('./index/files');
 
 module.exports = (workspaceUrl, token, { cacheTtl = 60, cacheMaxEntries = 100 } = {}) => {
   const lru = new LRU({ maxAge: cacheTtl * 1000, max: cacheMaxEntries });
@@ -42,6 +43,7 @@ module.exports = (workspaceUrl, token, { cacheTtl = 60, cacheMaxEntries = 100 } 
     call,
     workspace: workspace(call),
     self: self(call),
-    channel: channel(call)
+    channel: channel(call),
+    files: files(call)
   };
 };
