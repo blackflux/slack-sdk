@@ -11,6 +11,9 @@ module.exports = (call) => ({
   },
   setTopic: async (name, topic) => {
     const channel = await getChannelMeta(call, name);
+    if (channel.topic?.value === topic) {
+      return null;
+    }
     return call('conversations.setTopic', {
       topic,
       channel: channel.id
@@ -18,6 +21,9 @@ module.exports = (call) => ({
   },
   setPurpose: async (name, purpose) => {
     const channel = await getChannelMeta(call, name);
+    if (channel.purpose?.value === purpose) {
+      return null;
+    }
     return call('conversations.setPurpose', {
       purpose,
       channel: channel.id
