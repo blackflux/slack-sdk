@@ -16,4 +16,9 @@ describe('Testing Slack SDK', {
     const r = await slack.self.message('message');
     expect(r).to.deep.contain({ ok: true });
   });
+
+  it('Testing self.shareFiles', async () => {
+    const r = await slack.self.shareFiles(['F029QHN0AAZ', 'F02AH8J752L']);
+    expect(r).to.deep.equal({ ok: true });
+  });
 });

@@ -40,26 +40,4 @@ module.exports = (call) => ({
     assert(completeUploadResponse.files.length === 1, completeUploadResponse);
     return completeUploadResponse.files[0].id;
   }
-  // share: async (name, id) => {
-  //   const channel = await channelMeta(name);
-  //   return call('files.share', {
-  //     files: id,
-  //     broadcast: false,
-  //     blocks: JSON.stringify([{
-  //       type: 'rich_text',
-  //       elements: [
-  //         {
-  //           type: 'rich_text_section',
-  //           elements: [
-  //             {
-  //               type: 'text',
-  //               text: 'test'
-  //             }]
-  //         }
-  //       ]
-  //     }]),
-  //     resharing_aware: true,
-  //     channel: channel.id
-  //   });
-  // }
 });

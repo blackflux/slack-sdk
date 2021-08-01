@@ -22,5 +22,12 @@ module.exports = (call) => ({
       purpose,
       channel: channel.id
     });
+  },
+  shareFiles: async (name, files) => {
+    const channel = await getChannelMeta(call, name);
+    return call('files.share', {
+      files: files.join(','),
+      channel: channel.id
+    });
   }
 });
