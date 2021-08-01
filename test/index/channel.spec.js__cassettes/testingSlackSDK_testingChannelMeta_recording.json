@@ -1,0 +1,18 @@
+[
+  {
+    "scope": "https://workspace.slack.com:443",
+    "method": "POST",
+    "path": "/api/rtm.start",
+    "body": "----------------------------143695343986972598734041\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\nSLACK-SESSION-TOKEN\r\n----------------------------143695343986972598734041--\r\n",
+    "status": 200,
+    "response": {
+      "ok": true,
+      "channels": [
+        {
+          "id": "C3Y9NQTQG",
+          "name": "channel"
+        }
+      ]
+    }
+  }
+]
