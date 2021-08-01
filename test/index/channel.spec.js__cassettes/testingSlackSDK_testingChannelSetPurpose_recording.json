@@ -3,7 +3,7 @@
     "scope": "https://workspace.slack.com:443",
     "method": "POST",
     "path": "/api/rtm.start",
-    "body": "----------------------------128508069392224419437859\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\nSLACK-SESSION-TOKEN\r\n----------------------------128508069392224419437859--\r\n",
+    "body": "----------------------------198402330513246502238920\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\nSLACK-SESSION-TOKEN\r\n----------------------------198402330513246502238920--\r\n",
     "status": 200,
     "response": {
       "ok": true,
@@ -19,7 +19,7 @@
     "scope": "https://workspace.slack.com:443",
     "method": "POST",
     "path": "/api/conversations.setPurpose",
-    "body": "----------------------------198402330513246502238920\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\nSLACK-SESSION-TOKEN\r\n----------------------------198402330513246502238920\r\nContent-Disposition: form-data; name=\"purpose\"\r\n\r\npurpose\r\n----------------------------198402330513246502238920\r\nContent-Disposition: form-data; name=\"channel\"\r\n\r\nC3Y9NQTQG\r\n----------------------------198402330513246502238920--\r\n",
+    "body": "----------------------------240931670220439824763760\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\nSLACK-SESSION-TOKEN\r\n----------------------------240931670220439824763760\r\nContent-Disposition: form-data; name=\"purpose\"\r\n\r\npurpose\r\n----------------------------240931670220439824763760\r\nContent-Disposition: form-data; name=\"channel\"\r\n\r\nC3Y9NQTQG\r\n----------------------------240931670220439824763760--\r\n",
     "status": 200,
     "response": {
       "ok": true

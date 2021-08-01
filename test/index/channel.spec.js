@@ -35,9 +35,19 @@ describe('Testing Slack SDK', {
     expect(r).to.deep.contain({ ok: true });
   });
 
+  it('Testing channel.setTopic (unchanged)', async () => {
+    const r = await slack.channel.setTopic('channel', 'topic');
+    expect(r).to.equal(null);
+  });
+
   it('Testing channel.setPurpose', async () => {
     const r = await slack.channel.setPurpose('channel', 'purpose');
     expect(r).to.deep.contain({ ok: true });
+  });
+
+  it('Testing channel.setPurpose (unchanged)', async () => {
+    const r = await slack.channel.setPurpose('channel', 'purpose');
+    expect(r).to.equal(null);
   });
 
   it('Testing channel.shareFiles', async () => {
