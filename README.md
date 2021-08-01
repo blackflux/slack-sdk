@@ -53,6 +53,10 @@ Maximum number of entries in cache at any given time. Optional, defaults to `100
 
 Send `message` to self.
 
+### self.shareFiles(files: array<string>)
+
+Share `files` to self.
+
 ### channel.meta(channel: string)
 
 Get meta information about channel `channel`
@@ -68,6 +72,10 @@ Set `topic` of channel `channel`
 ### channel.setPurpose(channel: string, purpose: string)
 
 Set `purpose` of channel `channel`
+
+### channel.shareFiles(channel: string, files: array<string>)
+
+Share `files` to a channel `channel`.
 
 ### workspace.details(cache: boolean = true)
 
