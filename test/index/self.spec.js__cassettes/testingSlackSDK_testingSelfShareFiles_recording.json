@@ -1,0 +1,33 @@
+[
+  {
+    "scope": "https://workspace.slack.com:443",
+    "method": "POST",
+    "path": "/api/rtm.start",
+    "body": "----------------------------004906267591311878777087\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\nSLACK-SESSION-TOKEN\r\n----------------------------004906267591311878777087--\r\n",
+    "status": 200,
+    "response": {
+      "ok": true,
+      "self": {
+        "id": "U0G9QF9C6",
+        "name": "user.name"
+      },
+      "ims": [
+        {
+          "id": "D19NX2Y3Z",
+          "user": "U0G9QF9C6"
+        }
+      ]
+    }
+  },
+  {
+    "scope": "https://workspace.slack.com:443",
+    "method": "POST",
+    "path": "/api/files.share",
+    "body": "----------------------------253285144519931620775601\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\nSLACK-SESSION-TOKEN\r\n----------------------------253285144519931620775601\r\nContent-Disposition: form-data; name=\"files\"\r\n\r\nF029QHN0AAZ,F02AH8J752L\r\n----------------------------253285144519931620775601\r\nContent-Disposition: form-data; name=\"channel\"\r\n\r\nD19NX2Y3Z\r\n----------------------------253285144519931620775601--\r\n",
+    "status": 200,
+    "response": {
+      "ok": true
+    },
+    "responseIsBinary": false
+  }
+]

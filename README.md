@@ -53,6 +53,10 @@ Maximum number of entries in cache at any given time. Optional, defaults to `100
 
 Send `message` to self.
 
+### self.shareFiles(files: array<string>)
+
+Share `files` to self.
+
 ### channel.meta(channel: string)
 
 Get meta information about channel `channel`
@@ -69,9 +73,17 @@ Set `topic` of channel `channel`
 
 Set `purpose` of channel `channel`
 
+### channel.shareFiles(channel: string, files: array<string>)
+
+Share `files` to a channel `channel`.
+
 ### workspace.details(cache: boolean = true)
 
 Obtain details for workspace. Should usually be cached as it is easy to run into rate limits.
+
+### files.upload(filepath: string, title: string = null, filename: string = null)
+
+Upload file. Title and filename default to basename of filepath. Returns file id.
 
 ## Internal functions
 
