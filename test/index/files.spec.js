@@ -17,12 +17,12 @@ describe('Testing Slack SDK', {
   it('Testing files.upload', async () => {
     const filepath = path.join(`${__filename}__fixtures`, 'file.jpg');
     const r = await slack.files.upload(filepath);
-    expect(r).to.deep.equal({ id: 'F029QHN0AAZ', title: 'file.jpg' });
+    expect(r).to.deep.equal('F029QHN0AAZ');
   });
 
   it('Testing files.upload with custom title and filename', async () => {
     const filepath = path.join(`${__filename}__fixtures`, 'file.jpg');
     const r = await slack.files.upload(filepath, '<some-title>', '<some-filename>');
-    expect(r).to.deep.equal({ id: 'F02AH8J752L', title: '<some-title>' });
+    expect(r).to.deep.equal('F02AH8J752L');
   });
 });

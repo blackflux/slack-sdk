@@ -75,7 +75,7 @@ Obtain details for workspace. Should usually be cached as it is easy to run into
 
 ### files.upload(filepath: string, title: string = null, filename: string = null)
 
-Upload file. Title and filename default to basename for filepath. Returns file info.
+Upload file. Title and filename default to basename of filepath. Returns file id.
 
 ## Internal functions
 
