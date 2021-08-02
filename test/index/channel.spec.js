@@ -36,7 +36,7 @@ describe('Testing Slack SDK', {
   });
 
   it('Testing channel.setTopic (unchanged)', async () => {
-    const r = await slack.channel.setTopic('channel', 'topic');
+    const r = await slack.channel.setTopic('channel', 'topic http://test.com test.com');
     expect(r).to.equal(null);
   });
 
@@ -46,7 +46,7 @@ describe('Testing Slack SDK', {
   });
 
   it('Testing channel.setPurpose (unchanged)', async () => {
-    const r = await slack.channel.setPurpose('channel', 'purpose');
+    const r = await slack.channel.setPurpose('channel', 'purpose http://test.com test.com');
     expect(r).to.equal(null);
   });
 

@@ -1,5 +1,12 @@
 const getChannelMeta = require('./util/get-channel-meta');
 
+const normalize = (msg) => {
+  if (!(typeof msg === 'string')) {
+    return msg;
+  }
+  return msg.replace(/<(?:[^|>]+\|)?([^>]+)>/g, '$1');
+};
+
 module.exports = (call) => ({
   meta: (name) => getChannelMeta(call, name),
   message: async (name, msg) => {
@@ -11,7 +18,7 @@ module.exports = (call) => ({
   },
   setTopic: async (name, topic) => {
     const channel = await getChannelMeta(call, name);
-    if (channel.topic?.value === topic) {
+    if (normalize(channel.topic?.value) === topic) {
       return null;
     }
     return call('conversations.setTopic', {
@@ -21,7 +28,7 @@ module.exports = (call) => ({
   },
   setPurpose: async (name, purpose) => {
     const channel = await getChannelMeta(call, name);
-    if (channel.purpose?.value === purpose) {
+    if (normalize(channel.purpose?.value) === purpose) {
       return null;
     }
     return call('conversations.setPurpose', {
