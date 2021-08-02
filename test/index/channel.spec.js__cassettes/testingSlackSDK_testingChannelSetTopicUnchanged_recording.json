@@ -12,10 +12,10 @@
           "id": "C3Y9NQTQG",
           "name": "channel",
           "topic": {
-            "value": "topic"
+            "value": "topic <http://test.com> <http://test.com|test.com>"
           },
           "purpose": {
-            "value": "purpose"
+            "value": "purpose <http://test.com> <http://test.com|test.com>"
           }
         }
       ]
