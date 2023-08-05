@@ -1,15 +1,18 @@
-const axios = require('axios');
-const FormData = require('form-data');
-const LRU = require('lru-cache-ext');
-const objectHash = require('object-hash-strict');
+import axios from 'axios';
+import FormData from 'form-data';
+import LRU from 'lru-cache-ext';
+import objectHash from 'object-hash-strict';
 
-const workspace = require('./index/workspace');
-const self = require('./index/self');
-const channel = require('./index/channel');
-const files = require('./index/files');
+import workspace from './index/workspace.js';
+import self from './index/self.js';
+import channel from './index/channel.js';
+import files from './index/files.js';
 
-module.exports = (workspaceUrl, token, { cacheTtl = 60, cacheMaxEntries = 100 } = {}) => {
-  const lru = new LRU({ maxAge: cacheTtl * 1000, max: cacheMaxEntries });
+export default (workspaceUrl, token, { cacheTtl = 60, cacheMaxEntries = 100 } = {}) => {
+  const lru = new LRU({
+    ttl: cacheTtl * 1000,
+    max: cacheMaxEntries
+  });
 
   const call = (endpoint, params, cache = false) => {
     const formDataRaw = { token, ...params };

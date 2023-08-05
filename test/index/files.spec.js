@@ -1,7 +1,8 @@
-const path = require('path');
-const expect = require('chai').expect;
-const { describe } = require('node-tdd');
-const Slack = require('../../src/index');
+import path from 'path';
+import fs from 'smart-fs';
+import { expect } from 'chai';
+import { describe } from 'node-tdd';
+import Slack from '../../src/index.js';
 
 describe('Testing Slack SDK', {
   useNock: true,
@@ -15,13 +16,13 @@ describe('Testing Slack SDK', {
   });
 
   it('Testing files.upload', async () => {
-    const filepath = path.join(`${__filename}__fixtures`, 'file.jpg');
+    const filepath = path.join(`${fs.filename(import.meta.url)}__fixtures`, 'file.jpg');
     const r = await slack.files.upload(filepath);
     expect(r).to.deep.equal('F029QHN0AAZ');
   });
 
   it('Testing files.upload with custom title and filename', async () => {
-    const filepath = path.join(`${__filename}__fixtures`, 'file.jpg');
+    const filepath = path.join(`${fs.filename(import.meta.url)}__fixtures`, 'file.jpg');
     const r = await slack.files.upload(filepath, '<some-title>', '<some-filename>');
     expect(r).to.deep.equal('F02AH8J752L');
   });
