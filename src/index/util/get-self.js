@@ -1,4 +1,4 @@
-module.exports = async (call) => {
+export default async (call) => {
   const rtmStart = await call('rtm.start', {}, true);
   const user = rtmStart.self;
   return {

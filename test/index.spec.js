@@ -1,6 +1,6 @@
-const expect = require('chai').expect;
-const { describe } = require('node-tdd');
-const Slack = require('../src/index');
+import { expect } from 'chai';
+import { describe } from 'node-tdd';
+import Slack from '../src/index.js';
 
 describe('Testing Slack SDK', {
   useNock: true,

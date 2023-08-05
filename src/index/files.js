@@ -1,10 +1,10 @@
-const fs = require('fs');
-const path = require('path');
-const assert = require('assert');
-const FormData = require('form-data');
-const axios = require('axios');
+import fs from 'fs';
+import path from 'path';
+import assert from 'assert';
+import FormData from 'form-data';
+import axios from 'axios';
 
-module.exports = (call) => ({
+export default (call) => ({
   upload: async (filepath, title_ = null, filename_ = null) => {
     // prepare
     const basename = path.basename(filepath);
