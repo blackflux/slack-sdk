@@ -1,6 +1,6 @@
-const getSelf = require('./util/get-self');
+import getSelf from './util/get-self.js';
 
-module.exports = (call) => ({
+export default (call) => ({
   message: async (msg) => {
     const self = await getSelf(call);
     return call('chat.command', {

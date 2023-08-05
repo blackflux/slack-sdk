@@ -1,4 +1,4 @@
-const getChannelMeta = require('./util/get-channel-meta');
+import getChannelMeta from './util/get-channel-meta.js';
 
 const normalize = (msg) => {
   if (!(typeof msg === 'string')) {
@@ -7,7 +7,7 @@ const normalize = (msg) => {
   return msg.replace(/<(?:[^|>]+\|)?([^>]+)>/g, '$1');
 };
 
-module.exports = (call) => ({
+export default (call) => ({
   meta: (name) => getChannelMeta(call, name),
   message: async (name, msg) => {
     const channel = await getChannelMeta(call, name);

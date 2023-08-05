@@ -1,3 +1,3 @@
-module.exports = (call) => ({
+export default (call) => ({
   details: (cache = true) => call('rtm.start', {}, cache)
 });
