@@ -5,7 +5,7 @@
   "description": "Basic Slack Api SDK",
   "main": "lib/index.js",
   "dependencies": {
-    "axios": "1.4.0",
+    "axios": "1.6.0",
     "form-data": "4.0.0",
     "lru-cache-ext": "4.0.0",
     "object-hash-strict": "4.0.0"
