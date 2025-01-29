@@ -8,6 +8,7 @@ describe('Testing Slack SDK', {
   timestamp: '2020-07-13T16:14:25.488Z'
 }, () => {
   let slack;
+
   beforeEach(() => {
     slack = Slack('workspace', 'SLACK-SESSION-TOKEN');
   });

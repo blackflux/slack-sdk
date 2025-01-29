@@ -13,7 +13,7 @@ Basic Slack Api SDK using User Session Token
 
 ## Install
 
-```bash
+```
 npm i --save slack-sdk
 ```
 
